@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Tareas Avanzada</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <h1>📋 Gestión de Tareas</h1>
+
+        <div class="theme-toggle" aria-label="Cambiar tema">
+            <button id="toggle-theme" aria-pressed="false" title="Cambiar a modo oscuro">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+        </div>
+
+        <div class="input-group">
+            <input type="text" id="new-task" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea" />
+            <select id="task-category" aria-label="Categoría de la tarea">
+                <option value="Personal">Personal</option>
+                <option value="Trabajo">Trabajo</option>
+                <option value="Estudio">Estudio</option>
+            </select>
+            <input type="date" id="task-deadline" aria-label="Fecha límite" />
+            <button id="add-task" aria-label="Agregar tarea">Agregar Tarea</button>
+        </div>
+
+        <div class="filter-group">
+            <input type="text" id="search-task" placeholder="🔍 Buscar tareas..." aria-label="Buscar tareas" />
+            <select id="sort-tasks" aria-label="Ordenar tareas">
+                <option value="default">Ordenar por...</option>
+                <option value="name">Nombre</option>
+                <option value="status">Estado</option>
+            </select>
+        </div>
+
+        <ul id="task-list" aria-live="polite"></ul>
+
+        <div class="buttons">
+            <button id="show-all" aria-label="Mostrar todas las tareas">Mostrar Todas</button>
+            <button id="show-completed" aria-label="Mostrar tareas completadas">Completadas</button>
+            <button id="show-pending" aria-label="Mostrar tareas pendientes">Pendientes</button>
+            <button id="undo-delete" aria-label="Deshacer eliminación">Deshacer Eliminación</button>
+            <button id="clear-tasks" aria-label="Reiniciar lista de tareas">Reiniciar Lista</button>
+        </div>
+
+        <div class="statistics">
+            <p>Total de tareas: <span id="total-tasks">0</span></p>
+            <p>Completadas: <span id="completed-tasks">0</span></p>
+            <p>Pendientes: <span id="pending-tasks">0</span></p>
+        </div>
+
+        <div class="timer">
+            <p>🕒 Tiempo dedicado: <span id="task-timer">00:00:00</span></p>
+            <button id="start-timer" aria-label="Iniciar cronómetro">Iniciar Cronómetro</button>
+            <button id="pause-timer" aria-label="Pausar cronómetro">Pausar Cronómetro</button>
+            <button id="reset-timer" aria-label="Reiniciar cronómetro">Reiniciar Cronómetro</button>
+        </div>
+
+        <div id="notifications" aria-live="polite"></div>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
