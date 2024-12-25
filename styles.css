@@ -44,13 +44,13 @@ h1 {
     background: none;
     border: none;
     font-size: 1.5em;
-    color: #5c67f2; /* Color del botón */
+    color: #5c67f2;
     cursor: pointer;
 }
 
 /* Estilo para el ícono de la luna */
 #toggle-theme i {
-    color: yellow; /* Cambia el color a amarillo */
+    color: yellow;
 }
 
 /* Input Group */
@@ -166,36 +166,32 @@ body.dark-mode {
 
 .container.dark-mode {
     background: rgba(50, 50, 50, 0.9);
-    border: 2px solid white; /* Borde blanco en modo oscuro */
+    border: 2px solid white;
 }
 
-/* Additional Styles for Dark Mode */
 h1.dark-mode {
-    color: #aab8ff; /* Color del encabezado en modo oscuro */
+    color: #aab8ff;
 }
 
 .input-group input[type="text"].dark-mode,
 .input-group input[type="date"].dark-mode,
 .input-group select.dark-mode {
-    background-color: #555; /* Fondo oscuro para inputs en modo oscuro */
-    color: #fff; /* Color de texto blanco */
-    border: 1px solid #777; /* Borde más claro en modo oscuro */
+    background-color: #555;
+    color: #fff;
+    border: 1px solid #777;
 }
 
-/* Estilo para botones en modo oscuro */
 .buttons button.dark-mode {
-    background-color: #444; /* Fondo oscuro para botones en modo oscuro */
-    color: #fff; /* Color de texto blanco */
+    background-color: #444;
+    color: #fff;
 }
 
-/* Estilo para notificaciones en modo oscuro */
 .notification.dark-mode {
-    background-color: #444; /* Fondo oscuro para notificaciones en modo oscuro */
-    color: #fff; /* Color de texto blanco */
+    background-color: #444;
+    color: #fff;
 }
 
-/* Estilo para el temporizador en modo oscuro */
 .timer.dark-mode {
-    background-color: #444; /* Fondo oscuro para el temporizador en modo oscuro */
-    color: #fff; /* Color de texto blanco */
+    background-color: #444;
+    color: #fff;
 }

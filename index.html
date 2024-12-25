@@ -11,12 +11,14 @@
     <div class="container">
         <h1>📋 Gestión de Tareas</h1>
 
+        <!-- Toggle para cambiar tema -->
         <div class="theme-toggle" aria-label="Cambiar tema">
             <button id="toggle-theme" aria-pressed="false" title="Cambiar a modo oscuro">
                 <i class="fas fa-moon" id="theme-icon"></i>
             </button>
         </div>
 
+        <!-- Grupo de entrada para agregar tareas -->
         <div class="input-group">
             <input type="text" id="new-task" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea" />
             <select id="task-category" aria-label="Categoría de la tarea">
@@ -28,6 +30,7 @@
             <button id="add-task" aria-label="Agregar tarea">Agregar Tarea</button>
         </div>
 
+        <!-- Grupo de filtrado y ordenación -->
         <div class="filter-group">
             <input type="text" id="search-task" placeholder="🔍 Buscar tareas..." aria-label="Buscar tareas" />
             <select id="sort-tasks" aria-label="Ordenar tareas">
@@ -37,8 +40,10 @@
             </select>
         </div>
 
+        <!-- Lista de tareas -->
         <ul id="task-list" aria-live="polite"></ul>
 
+        <!-- Botones de acciones generales -->
         <div class="buttons">
             <button id="show-all" aria-label="Mostrar todas las tareas">Mostrar Todas</button>
             <button id="show-completed" aria-label="Mostrar tareas completadas">Completadas</button>
@@ -47,22 +52,27 @@
             <button id="clear-tasks" aria-label="Reiniciar lista de tareas">Reiniciar Lista</button>
         </div>
 
+        <!-- Estadísticas de tareas -->
         <div class="statistics">
             <p>Total de tareas: <span id="total-tasks">0</span></p>
             <p>Completadas: <span id="completed-tasks">0</span></p>
             <p>Pendientes: <span id="pending-tasks">0</span></p>
         </div>
 
+        <!-- Cronómetro para seguimiento de tareas -->
         <div class="timer">
             <p>🕒 Tiempo dedicado: <span id="task-timer">00:00:00</span></p>
             <button id="start-timer" aria-label="Iniciar cronómetro">Iniciar Cronómetro</button>
             <button id="pause-timer" aria-label="Pausar cronómetro">Pausar Cronómetro</button>
             <button id="reset-timer" aria-label="Reiniciar cronómetro">Reiniciar Cronómetro</button>
+            <button id="resume-timer" style="display: none;">Reanudar</button>
         </div>
 
+        <!-- Contenedor para notificaciones -->
         <div id="notifications" aria-live="polite"></div>
     </div>
 
+    <!-- Scripts de la funcionalidad -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
