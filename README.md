@@ -32,7 +32,7 @@ Abre el archivo index.html en tu navegador web para comenzar a utilizar la aplic
 
 
 🔧 Uso
-La aplicación incluye opciones para gestionar tareas, como añadir, eliminar y marcar tareas como completadas. También puedes ver estadísticas de tareas y cambiar el modo de visualización entre oscuro y claro. Para iniciar un cronómetro, selecciona una tarea específica y presiona 'Iniciar'. Puedes pausar y reiniciar el cronómetro según sea necesario.
+El uso de la aplicación incluye opciones para gestionar tareas, como añadir, eliminar y marcar tareas como completadas. También puedes ver estadísticas de tareas y cambiar el modo de visualización entre oscuro y claro. Para iniciar un cronómetro, selecciona una tarea específica y presiona 'Iniciar'. Puedes pausar y reiniciar el cronómetro según sea necesario.
 
 📞 Contribución
 Si deseas contribuir al proyecto, siéntete libre de hacer un fork del repositorio, realizar tus cambios y enviarme un pull request. Tus sugerencias y mejoras son siempre bienvenidas.
