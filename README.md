@@ -1,6 +1,4 @@
 
-Aquí tienes la versión actualizada del README con la nueva funcionalidad:
-
 🗂️ JQuery_Proyect_V1
 📖 Descripción
 Esta es una aplicación web interactiva que permite a los usuarios gestionar sus tareas diarias de manera eficiente. La aplicación incluye funcionalidades para agregar, eliminar y marcar tareas como completadas, así como un cronómetro para medir el tiempo dedicado a cada tarea. También ofrece estadísticas en tiempo real sobre el estado de las tareas y permite cambiar entre un modo oscuro y claro.
