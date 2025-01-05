@@ -5,7 +5,7 @@ body {
     padding: 0;
     background: linear-gradient(-45deg, #ff9a9e, #fad0c4, #fad0c4, #fbc2eb);
     background-size: 400% 400%;
-    animation: gradientBG 15s ease infinite, pulse 3s infinite;
+    animation: gradientBG 15s ease infinite;
     color: #333;
     transition: background-color 0.3s, color 0.3s;
 }
@@ -16,22 +16,7 @@ body {
     100% { background-position: 0% 50%; }
 }
 
-@keyframes pulse {
-    0% {
-        transform: scale(1);
-        opacity: 1;
-    }
-    50% {
-        transform: scale(1.05);
-        opacity: 0.8;
-    }
-    100% {
-        transform: scale(1);
-        opacity: 1;
-    }
-}
-
-/* Main Container */
+/* Container */
 .container {
     max-width: 700px;
     margin: 40px auto;
@@ -40,80 +25,12 @@ body {
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
     transition: background 0.3s, color 0.3s;
-    animation: fadeIn 1s ease-out;
-}
-
-@keyframes fadeIn {
-    from {
-        opacity: 0;
-    }
-    to {
-        opacity: 1;
-    }
 }
 
 /* Header */
 h1 {
     text-align: center;
     color: #5c67f2;
-    margin-bottom: 20px;
-}
-
-/* Theme Toggle */
-.theme-toggle {
-    display: flex;
-    justify-content: flex-end;
-}
-
-#toggle-theme {
-    background: none;
-    border: none;
-    font-size: 1.5em;
-    color: #5c67f2;
-    cursor: pointer;
-}
-
-/* Estilo para el ícono de la luna */
-#toggle-theme i {
-    color: yellow;
-}
-
-/* Input Group */
-.input-group {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 20px;
-}
-
-.input-group input[type="text"],
-.input-group input[type="date"],
-.input-group select {
-    flex: 1;
-    margin-right: 10px;
-    padding: 10px;
-    border: 1px solid #ccc;
-    border-radius: 5px;
-    transition: all 0.3s ease;
-}
-
-.input-group button {
-    padding: 10px 15px;
-    background-color: #5c67f2;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-}
-
-.input-group button:hover {
-    background-color: #4e54c8;
-}
-
-/* Filter Group */
-.filter-group {
-    display: flex;
-    justify-content: space-between;
     margin-bottom: 20px;
 }
 
@@ -140,16 +57,77 @@ h1 {
     background-color: #f1f1f1;
 }
 
-/* Buttons */
-.buttons {
+/* Task Content */
+.task-content {
     display: flex;
-    justify-content: space-between;
-    margin-top: 20px;
+    flex-direction: column;
 }
 
-.buttons button {
+.task-name {
+    font-weight: bold;
+}
+
+.task-category,
+.task-deadline {
+    font-size: 0.9em;
+    color: #777;
+}
+
+/* Task Actions */
+.task-actions {
+    display: flex;
+    align-items: center;
+}
+
+.task-actions button {
+    background: none;
+    border: none;
+    color: #007bff; /* Azul */
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.task-actions button:hover {
+    color: #0056b3; /* Azul oscuro */
+}
+
+/* Theme Toggle */
+#toggle-theme {
+    background: none;
+    border: none;
+    font-size: 1.5em;
+    color: #007bff; /* Azul */
+    cursor: pointer;
+    transition: color 0.3s ease;
+}
+
+#toggle-theme i {
+    transition: transform 0.3s ease;
+}
+
+/* Input Group */
+.input-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.input-group input[type="text"],
+.input-group input[type="date"],
+.input-group select {
+    flex: 1;
+    margin-right: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+}
+
+.input-group button {
     padding: 10px 15px;
-    background-color: #5c67f2;
+    background-color: #007bff; /* Azul */
     color: white;
     border: none;
     border-radius: 5px;
@@ -157,8 +135,15 @@ h1 {
     transition: background-color 0.3s ease;
 }
 
-.buttons button:hover {
-    background-color: #4e54c8;
+.input-group button:hover {
+    background-color: #0056b3; /* Azul oscuro */
+}
+
+/* Filter Group */
+.filter-group {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 /* Statistics */
@@ -175,7 +160,7 @@ h1 {
 .timer button {
     margin: 5px;
     padding: 10px 15px;
-    background-color: #5c67f2;
+    background-color: #007bff; /* Azul */
     color: white;
     border: none;
     border-radius: 5px;
@@ -184,7 +169,7 @@ h1 {
 }
 
 .timer button:hover {
-    background-color: #4e54c8;
+    background-color: #0056b3; /* Azul oscuro */
 }
 
 /* Notifications */
@@ -216,38 +201,88 @@ h1 {
 
 /* Dark Mode */
 body.dark-mode {
-    background: #333;
+    background: #121212;
+    color: #ffffff;
+}
+
+body.dark-mode .container {
+    background: #1e1e1e;
+}
+
+body.dark-mode #toggle-theme i {
+    color: #ffeb3b;
+}
+
+body.dark-mode .task {
+    background-color: #2c2c2c;
     color: #fff;
 }
 
-.container.dark-mode {
-    background: rgba(50, 50, 50, 0.9);
-    border: 2px solid white;
+body.dark-mode .task-actions button {
+    color: #ffeb3b;
 }
 
-h1.dark-mode {
-    color: #aab8ff;
-}
-
-.input-group input[type="text"].dark-mode,
-.input-group input[type="date"].dark-mode,
-.input-group select.dark-mode {
-    background-color: #555;
-    color: #fff;
-    border: 1px solid #777;
-}
-
-.buttons button.dark-mode {
-    background-color: #444;
+body.dark-mode .task-actions button:hover {
     color: #fff;
 }
 
-.notification.dark-mode {
-    background-color: #444;
+body.dark-mode .input-group input[type="text"],
+body.dark-mode .input-group input[type="date"],
+body.dark-mode .input-group select {
+    background-color: #333;
     color: #fff;
+    border: 1px solid #444;
 }
 
-.timer.dark-mode {
-    background-color: #444;
-    color: #fff;
+body.dark-mode .buttons button {
+    background-color: #2c2c2c;
+}
+
+body.dark-mode .buttons button:hover {
+    background-color: #3b3b3b;
+}
+
+/* Transition Effects for Theme Change */
+body.dark-mode #toggle-theme i {
+    animation: pulse 3s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 0.7;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Buttons for task list actions (e.g., Show All, Completed, Pending) */
+.buttons {
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.buttons button:hover {
+    background-color: #0056b3; /* Azul oscuro */
+}
+
+.buttons .active {
+    background-color: #0056b3; /* Azul oscuro cuando está activo */
 }
