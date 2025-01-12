@@ -21,7 +21,6 @@ $(document).ready(function () {
 
     // Mostrar notificaciones
     function showNotification(message, type = 'success') {
-        // Esta función muestra una notificación en la interfaz de usuario
         const notification = `<div class="notification ${type}">${message}</div>`;
         $('#notifications').append(notification);
         setTimeout(() => $('.notification').first().remove(), 3000);
@@ -60,11 +59,12 @@ $(document).ready(function () {
         if (!validateTaskInput(taskName, taskDeadline)) return;
 
         const taskHTML = `
-            <li class="task" data-name="${taskName.toLowerCase()}">
+            <li class="task" data-name="${taskName.toLowerCase()}" data-timer="0">
                 <div class="task-content">
                     <span class="task-name">${taskName}</span>
                     <span class="task-category">${taskCategory}</span>
                     <span class="task-deadline">${taskDeadline || 'Sin fecha límite'}</span>
+                    <span class="task-timer">Tiempo: <span class="timer">00:00:00</span></span>
                 </div>
                 <div class="task-actions">
                     <button class="start-timer">⏱ Iniciar Cronómetro</button>
@@ -98,8 +98,8 @@ $(document).ready(function () {
         });
     }
 
-    // Ordenar tareas
-    function sortTasks(sortBy) {
+       // Ordenar tareas
+       function sortTasks(sortBy) {
         const tasks = $('.task').toArray();
         if (sortBy === 'name') {
             tasks.sort((a, b) => $(a).data('name').localeCompare($(b).data('name')));
@@ -172,7 +172,8 @@ $(document).ready(function () {
         elapsedTime = 0; // Reiniciar el tiempo
         timerInterval = setInterval(() => {
             elapsedTime++;
-            $('#task-timer').text(formatElapsedTime(elapsedTime));
+            const timerDisplay = activeTask.find('.timer');
+            timerDisplay.text(formatElapsedTime(elapsedTime));
             // Actualizar el tiempo en el elemento de la tarea
             activeTask.data('timer', elapsedTime);
         }, 1000);

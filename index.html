@@ -6,7 +6,7 @@
     <title>Gestión de Tareas Avanzada</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet"> <!-- Agregar esta línea -->
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -21,7 +21,7 @@
 
         <!-- Grupo de entrada para agregar tareas -->
         <div class="input-group">
-            <input type="text" id="new-task" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea" />
+            <input type="text" id="new-task" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea" required />
             <select id="task-category" aria-label="Categoría de la tarea">
                 <option value="Personal">Personal</option>
                 <option value="Trabajo">Trabajo</option>
@@ -66,7 +66,7 @@
             <button id="start-timer" aria-label="Iniciar cronómetro">Iniciar Cronómetro</button>
             <button id="pause-timer" aria-label="Pausar cronómetro">Pausar Cronómetro</button>
             <button id="reset-timer" aria-label="Reiniciar cronómetro">Reiniciar Cronómetro</button>
-            <button id="resume-timer" style="display: none;">Reanudar</button>
+            <button id="resume-timer" style="display: none;" aria-label="Reanudar cronómetro">Reanudar</button>
         </div>
 
         <!-- Contenedor para notificaciones -->
