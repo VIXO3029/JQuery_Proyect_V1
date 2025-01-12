@@ -35,6 +35,17 @@ $(document).ready(function () {
         $('#total-tasks').text(totalTasks);
         $('#completed-tasks').text(completedTasks);
         $('#pending-tasks').text(pendingTasks);
+        updateTotalTime(); // Actualizar el tiempo total
+    }
+
+    // Actualizar el tiempo total dedicado a las tareas
+    function updateTotalTime() {
+        let totalTime = 0;
+        $('.task').each(function () {
+            const taskTime = $(this).data('timer') || 0; // Obtener el tiempo de cada tarea
+            totalTime += taskTime; // Sumar al tiempo total
+        });
+        $('#total-time').text(formatElapsedTime(totalTime)); // Mostrar el tiempo total
     }
 
     // Validar entrada de tareas
@@ -98,8 +109,8 @@ $(document).ready(function () {
         });
     }
 
-       // Ordenar tareas
-       function sortTasks(sortBy) {
+    // Ordenar tareas
+    function sortTasks(sortBy) {
         const tasks = $('.task').toArray();
         if (sortBy === 'name') {
             tasks.sort((a, b) => $(a).data('name').localeCompare($(b).data('name')));
@@ -176,6 +187,7 @@ $(document).ready(function () {
             timerDisplay.text(formatElapsedTime(elapsedTime));
             // Actualizar el tiempo en el elemento de la tarea
             activeTask.data('timer', elapsedTime);
+            updateTotalTime(); // Actualizar el tiempo total en las estadísticas
         }, 1000);
         showNotification(`Cronómetro iniciado para la tarea: ${activeTask.find('.task-name').text()}`);
     }
@@ -202,6 +214,20 @@ $(document).ready(function () {
         elapsedTime = 0;
         $('#task-timer').text('00:00:00');
         showNotification('Cronómetro reiniciado.');
+    });
+
+    // Detener el cronómetro
+    $('#stop-timer').on('click', function () {
+        if (activeTask) {
+            clearInterval(timerInterval);
+            timerInterval = null;
+            elapsedTime = 0; // Reiniciar el tiempo
+            $('#task-timer').text('00:00:00'); // Reiniciar el display del cronómetro
+            showNotification('Cronómetro detenido.');
+            activeTask = null; // Limpiar la tarea activa
+        } else {
+            showNotification('No hay un cronómetro en ejecución.', 'error');
+        }
     });
 
     // Inicializar estadísticas
