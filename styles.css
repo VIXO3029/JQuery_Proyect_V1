@@ -24,7 +24,7 @@ body {
     padding: 20px;
     border-radius: 15px;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
-    transition: background 0.3s, color 0.3s;
+    transition: background 0.3s, color 0.3s, border 0.3s; /* Añadido border a la transición */
 }
 
 /* Header */
@@ -220,6 +220,7 @@ body.dark-mode {
 
 body.dark-mode .container {
     background: #1e1e1e;
+    border: 2px solid white; /* Borde blanco en modo oscuro */
 }
 
 body.dark-mode #toggle-theme i {
@@ -506,4 +507,3 @@ body.dark-mode .task-actions button {
         margin-bottom: 10px;
     }
 }
-
