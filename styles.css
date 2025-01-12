@@ -93,6 +93,19 @@ h1 {
     color: #0056b3; /* Azul oscuro */
 }
 
+/* New Timer Button Style */
+.start-timer {
+    color: #28a745; /* Verde */
+    font-size: 1.2em;
+    cursor: pointer;
+    margin-left: 10px;
+    transition: color 0.3s ease;
+}
+
+.start-timer:hover {
+    color: #218838; /* Verde oscuro */
+}
+
 /* Theme Toggle */
 #toggle-theme {
     background: none;
@@ -286,3 +299,211 @@ body.dark-mode #toggle-theme i {
 .buttons .active {
     background-color: #0056b3; /* Azul oscuro cuando está activo */
 }
+
+/* Additional Styles for Responsiveness */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="date"],
+    .input-group select {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .input-group button {
+        width: 100%;
+    }
+
+    .filter-group {
+        flex-direction: column;
+    }
+
+    .filter-group input,
+    .filter-group select {
+        margin-bottom: 10px;
+    }
+
+    .buttons {
+        flex-direction: column;
+    }
+
+    .buttons button {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+}
+
+/* General Styles for Buttons */
+button {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Input Fields */
+input[type="text"],
+input[type="date"],
+select {
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+input[type="text"]:focus,
+input[type="date"]:focus,
+select:focus {
+    border-color: #007bff; /* Azul */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Task List Empty State */
+#task-list:empty::before {
+    content: "No hay tareas disponibles.";
+    display: block;
+    text-align: center;
+    color: #aaa;
+    margin: 20px 0;
+}
+
+/* Hover Effects for Task List */
+.task:hover {
+    background-color: #e9ecef; /* Color gris claro */
+}
+
+/* Button Styles for Active State */
+.buttons .active {
+    background-color: #0056b3; /* Azul oscuro cuando está activo */
+    color: white;
+}
+
+/* Responsive Design for Larger Screens */
+@media (min-width: 768px) {
+    .input-group {
+        flex-direction: row;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="date"],
+    .input-group select {
+        margin-right: 10px;
+    }
+
+    .buttons {
+        justify-content: space-between;
+    }
+}
+
+/* Additional Styles for the Timer */
+.timer p {
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+/* Timer Button Styles */
+.timer button {
+    padding: 10px 20px;
+    font-size: 1em;
+}
+
+/* Notification Styles */
+.notification {
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+    animation: slideIn 0.5s ease-out;
+}
+
+/* Dark Mode Adjustments */
+body.dark-mode .notification {
+    background-color: #333;
+    color: #fff;
+}
+
+/* Task Actions in Dark Mode */
+body.dark-mode .task-actions button {
+    color: #ffeb3b; /* Amarillo */
+}
+
+/* Transition Effects for Task Completion */
+.task.completed {
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Additional Styles for Task Categories */
+.task-category {
+    font-style: italic;
+    color: #6c757d; /* Gris */
+}
+
+/* Styles for Task Deadlines */
+.task-deadline {
+    color: #dc3545; /* Rojo */
+}
+
+/* Styles for the Theme Toggle Button */
+#toggle-theme {
+    margin-left: auto;
+}
+
+/* Styles for the Statistics Section */
+.statistics p {
+    font-size: 1.1em;
+    margin: 5px 0;
+}
+
+/* Styles for the Filter Group */
+.filter-group input {
+    flex: 1;
+    margin-right: 10px;
+}
+
+/* Styles for the Input Group on Mobile */
+@media (max-width: 600px) {
+    .input-group {
+        flex-direction: column;
+    }
+
+    .input-group input[type="text"],
+    .input-group input[type="date"],
+    .input-group select {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .input-group button {
+        width: 100%;
+    }
+}
+
+/* Styles for the Timer on Mobile */
+.timer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.timer button {
+    margin: 5px;
+    padding: 10px 15px;
+    background-color: #007bff; /* Azul */
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.timer button:hover {
+    background-color: #0056b3; /* Azul oscuro */
+}
+
+/* Styles for the Task List on Mobile */
+@media (max-width: 600px) {
+    .task {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .task-content {
+        margin-bottom: 10px;
+    }
+}
+
