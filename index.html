@@ -10,97 +10,73 @@
 </head>
 <body>
     <div class="container">
-        <!-- Encabezado -->
-        <header>
-            <h1>📋 Gestión de Tareas</h1>
-            <div class="theme-toggle" aria-label="Cambiar tema">
-                <button id="toggle-theme" aria-pressed="false" title="Cambiar a modo oscuro">
-                    <i class="fas fa-moon" id="theme-icon"></i>
-                </button>
-            </div>
-        </header>
+        <h1>📋 Gestión de Tareas</h1>
 
-        <!-- Sección de entrada de tareas -->
-        <section aria-labelledby="task-input-section">
-            <h2 id="task-input-section" class="sr-only">Agregar Nueva Tarea</h2>
-            <div class="input-group">
-                <input type="text" id="new-task" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea" required />
-                <select id="task-category" aria-label="Categoría de la tarea">
-                    <option value="Personal">Personal</option>
-                    <option value="Trabajo">Trabajo</option>
-                    <option value="Estudio">Estudio</option>
-                </select>
-                <input type="date" id="task-deadline" aria-label="Fecha límite" />
-                <button id="add-task" aria-label="Agregar tarea">Agregar Tarea</button>
-            </div>
-        </section>
+        <!-- Toggle para cambiar tema -->
+        <div class="theme-toggle" aria-label="Cambiar tema">
+            <button id="toggle-theme" aria-pressed="false" title="Cambiar a modo oscuro">
+                <i class="fas fa-moon" id="theme-icon"></i>
+            </button>
+        </div>
 
-        <!-- Sección de filtrado y ordenación -->
-        <section aria-labelledby="filter-section">
-            <h2 id="filter-section" class="sr-only">Filtrar y Ordenar Tareas</h2>
-            <div class="filter-group">
-                <input type="text" id="search-task" placeholder="🔍 Buscar tareas..." aria-label="Buscar tareas" />
-                <select id="sort-tasks" aria-label="Ordenar tareas">
-                    <option value="default">Ordenar por...</option>
-                    <option value="name">Nombre</option>
-                    <option value="status">Estado</option>
-                </select>
-            </div>
-        </section>
+        <!-- Grupo de entrada para agregar tareas -->
+        <div class="input-group">
+            <input type="text" id="new-task" placeholder="Escribe una nueva tarea..." aria-label="Nueva tarea" required />
+            <select id="task-category" aria-label="Categoría de la tarea">
+                <option value="Personal">Personal</option>
+                <option value="Trabajo">Trabajo</option>
+                <option value="Estudio">Estudio</option>
+            </select>
+            <input type="date" id="task-deadline" aria-label="Fecha límite" />
+            <button id="add-task" aria-label="Agregar tarea">Agregar Tarea</button>
+        </div>
+
+        <!-- Grupo de filtrado y ordenación -->
+        <div class="filter-group">
+            <input type="text" id="search-task" placeholder="🔍 Buscar tareas..." aria-label="Buscar tareas" />
+            <select id="sort-tasks" aria-label="Ordenar tareas">
+                <option value="default">Ordenar por...</option>
+                <option value="name">Nombre</option>
+                <option value="status">Estado</option>
+            </select>
+        </div>
 
         <!-- Lista de tareas -->
-        <section aria-labelledby="task-list-section">
-            <h2 id="task-list-section" class="sr-only">Lista de Tareas</h2>
-            <ul id="task-list" aria-live="polite"></ul>
-        </section>
+        <ul id="task-list" aria-live="polite"></ul>
 
         <!-- Botones de acciones generales -->
-        <section aria-labelledby="actions-section">
-            <h2 id="actions-section" class="sr-only">Acciones Generales</h2>
-            <div class="buttons">
-                <button id="show-all" aria-label="Mostrar todas las tareas">Mostrar Todas</button>
-                <button id="show-completed" aria-label="Mostrar tareas completadas">Completadas</button>
-                <button id="show-pending" aria-label="Mostrar tareas pendientes">Pendientes</button>
-                <button id="undo-delete" aria-label="Deshacer eliminación">Deshacer Eliminación</button>
-                <button id="clear-tasks" aria-label="Reiniciar lista de tareas">Reiniciar Lista</button>
-            </div>
-        </section>
+        <div class="buttons">
+            <button id="show-all" aria-label="Mostrar todas las tareas">Mostrar Todas</button>
+            <button id="show-completed" aria-label="Mostrar tareas completadas">Completadas</button>
+            <button id="show-pending" aria-label="Mostrar tareas pendientes">Pendientes</button>
+            <button id="undo-delete" aria-label="Deshacer eliminación">Deshacer Eliminación</button>
+            <button id="clear-tasks" aria-label="Reiniciar lista de tareas">Reiniciar Lista</button>
+        </div>
 
         <!-- Estadísticas de tareas -->
-        <section aria-labelledby="statistics-section">
-            <h2 id="statistics-section" class="sr-only">Estadísticas de Tareas</h2>
-            <div class="statistics">
-                <p>Total de tareas: <span id="total-tasks">0</span></p>
-                <p>Completadas: <span id="completed-tasks">0</span></p>
-                <p>Pendientes: <span id="pending-tasks">0</span></p>
-                <p>Tiempo total dedicado: <span id="total-time">00:00:00</span></p>
-            </div>
-        </section>
+        <div class="statistics">
+            <p>Total de tareas: <span id="total-tasks">0</span></p>
+            <p>Completadas: <span id="completed-tasks">0</span></p>
+            <p>Pendientes: <span id="pending-tasks">0</span></p>
+            <p>Tiempo total dedicado: <span id="total-time">00:00:00</span></p> <!-- Nueva línea para tiempo total -->
+        </div>
 
         <!-- Cronómetro para seguimiento de tareas -->
-        <section aria-labelledby="timer-section">
-            <h2 id="timer-section" class="sr-only">Cronómetro de Tareas</h2>
-            <div class="timer">
-                <p>🕒 Tiempo dedicado: <span id="task-timer">00:00:00</span></p>
-                <div class="timer-buttons">
-                    <button id="start-timer" aria-label="Iniciar cronómetro">Iniciar</button>
-                    <button id="pause-timer" aria-label="Pausar cronómetro">Pausar</button>
-                    <button id="stop-timer" aria-label="Detener cronómetro">Detener</button>
-                    <button id="reset-timer" aria-label="Reiniciar cronómetro">Reiniciar</button>
-                    <button id="resume-timer" style="display: none;" aria-label="Reanudar cronómetro">Reanudar</button>
-                </div>
-            </div>
-        </section>
+        <div class="timer">
+            <p>🕒 Tiempo dedicado: <span id="task-timer">00:00:00</span></p>
+            <button id="start-timer" aria-label="Iniciar cronómetro">Iniciar Cronómetro</button>
+            <button id="pause-timer" aria-label="Pausar cronómetro">Pausar Cronómetro</button>
+            <button id="stop-timer" aria-label="Detener cronómetro">Detener Cronómetro</button> <!-- Nuevo botón para detener -->
+            <button id="reset-timer" aria-label="Reiniciar cronómetro">Reiniciar Cronómetro</button>
+            <button id="resume-timer" style="display: none;" aria-label="Reanudar cronómetro">Reanudar</button>
+        </div>
 
         <!-- Contenedor para notificaciones -->
-        <section aria-labelledby="notifications-section">
-            <h2 id="notifications-section" class="sr-only">Notificaciones</h2>
-            <div id="notifications" aria-live="polite"></div>
-        </section>
+        <div id="notifications" aria-live="polite"></div>
     </div>
 
     <!-- Scripts de la funcionalidad -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src="script.js"></script>
 </body>
-</html>     
+</html>
