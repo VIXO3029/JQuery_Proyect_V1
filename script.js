@@ -19,12 +19,13 @@ $(document).ready(function () {
         if (!init) localStorage.setItem('theme', isDark ? 'dark' : 'light');
     }
 
-    // Mostrar notificaciones
+   // Mostrar notificaciones
     function showNotification(message, type = 'success') {
-        const notification = `<div class="notification ${type}">${message}</div>`;
-        $('#notifications').append(notification);
-        setTimeout(() => $('.notification').first().remove(), 3000);
-    }
+    // Esta función muestra una notificación en la interfaz de usuario
+    const notification = `<div class="notification ${type}">${message}</div>`;
+    $('#notifications').append(notification);
+    setTimeout(() => $('.notification').first().remove(), 3000);
+}
 
     // Actualizar contadores de tareas
     function updateTaskCounters() {
