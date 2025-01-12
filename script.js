@@ -2,6 +2,7 @@ $(document).ready(function () {
     const deletedTasks = [];
     let timerInterval = null;
     let elapsedTime = 0;
+    let activeTask = null; // Tarea activa para el cronómetro
 
     // Persistencia del tema
     const savedTheme = localStorage.getItem('theme');
@@ -65,6 +66,7 @@ $(document).ready(function () {
                     <span class="task-deadline">${taskDeadline || 'Sin fecha límite'}</span>
                 </div>
                 <div class="task-actions">
+                    <button class="start-timer">⏱ Iniciar Cronómetro</button>
                     <button class="complete-task">✔</button>
                     <button class="delete-task">❌</button>
                 </div>
@@ -133,6 +135,10 @@ $(document).ready(function () {
             taskElement.remove();
             showNotification('Tarea eliminada.');
             updateTaskCounters();
+        })
+        .on('click', '.start-timer', function () {
+            const taskElement = $(this).closest('.task');
+            startTaskTimer(taskElement);
         });
 
     // Restaurar última tarea eliminada
@@ -153,6 +159,23 @@ $(document).ready(function () {
         const minutes = String(Math.floor((seconds % 3600) / 60)).padStart(2, '0');
         const secs = String(seconds % 60).padStart(2, '0');
         return `${hours}:${minutes}:${secs}`;
+    }
+
+    function startTaskTimer(taskElement) {
+        if (activeTask) {
+            showNotification('Ya hay un cronómetro en ejecución. Deténlo primero.', 'error');
+            return;
+        }
+
+        activeTask = taskElement;
+        elapsedTime = 0; // Reiniciar el tiempo
+        timerInterval = setInterval(() => {
+            elapsedTime++;
+            $('#task-timer').text(formatElapsedTime(elapsedTime));
+            // Actualizar el tiempo en el elemento de la tarea
+            activeTask.data('timer', elapsedTime);
+        }, 1000);
+        showNotification(`Cronómetro iniciado para la tarea: ${activeTask.find('.task-name').text()}`);
     }
 
     $('#start-timer').on('click', function () {
